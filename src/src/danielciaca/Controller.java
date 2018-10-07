@@ -53,12 +53,12 @@ class Controller {
                     break;
                 case FIND_PIESA:
                     FilterOption selectedFilter = showPiesMenuFinder();
-                    System.out.print("Enter name: ");
+                    System.out.print("Enter Car part name: ");
                     String searchString = in.nextLine();
                     assert selectedFilter != null;
                     List<PiesaAuto> filteredPiese = findPieseAuto(searchString, selectedFilter);
                     if (filteredPiese.size() == 0) {
-                        System.out.println("Nicio potrivire");
+                        System.out.println("no match");
                     } else {
                         for (PiesaAuto p : filteredPiese)
                             System.out.println(p);
@@ -77,10 +77,10 @@ class Controller {
     }
 
     private Action showMainMenuAndGetSelection() {
-        System.out.println("1. Adauga piesa");
-        System.out.println("2. gaseste piesa");
-        System.out.println("3. Arata toata lista piese");
-        System.out.println("4. inchide aplicatia");
+        System.out.println("1. Add Car parts");
+        System.out.println("2. Find Car parts");
+        System.out.println("3. Show the list of car parts");
+        System.out.println("4. Close App");
         String choice;
         do {
             choice = in.nextLine();
@@ -94,7 +94,7 @@ class Controller {
                 case "4":
                     return Action.EXIT;
                 default:
-                    System.out.println("Introd numar de la 1-4");
+                    System.out.println("Only numbers between 1 and 4");
             }
         } while (!choice.equals("4"));
         return null;
@@ -113,9 +113,9 @@ class Controller {
 
 
     private FilterOption showPiesMenuFinder() {
-        System.out.println("1. Cautare dupa nume");
-        System.out.println("2. Cautare dupa pret");
-        System.out.println("3. Cautare dupa cantitate");
+        System.out.println("1.Search by name");
+        System.out.println("2.Search by price");
+        System.out.println("3.Search by quantity");
         System.out.println();
         String choice;
         do {
